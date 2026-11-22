@@ -55,25 +55,26 @@ My answer:An id stays with the item, but an index changes when items are deleted
 
 **3.1 (Explain)** Why is the fetch inside useEffect and not written directly in the component body?
 
-My answer:
+My answer:Fetching is a side effect, meaning it reaches outside React. The component body runs on every draw, so a fetch there would run every time, set state, trigger another draw, and loop forever. useEffect runs after the draw, and only when you tell it to.
 
 
 
 **3.2 (Predict)** What is the difference between useEffect(fn), useEffect(fn, []) and useEffect(fn, [url])?
 
-My answer:
+My answer:useEffect(fn) -  runs after every render.
+useEffect(fn, []) -  runs once, after the first render.
+useEffect(fn, [url]) - runs after the first render and again whenever url changes.
 
 
 
 **3.3 (Explain)** fetch does not fail on a 404. What can go wrong if you forget to check res.ok?
 
-My answer:
-
+My answer:fetch only treats network problems as errors. A 404 is still considered a successful request. So we check the response first. Without the check, the code may try to read the error page as movie data and cause a confusing JSON error. The check gives a clear message like “Request failed: 404” instead.
 
 
 **3.4 (Explain)** What does the cleanup function (controller.abort()) do and why do we ignore AbortError?
 
-My answer:
+My answer: The cleanup stops a request when the component is removed or the effect runs again. When fetch is cancelled, it gives an AbortError. This is normal, not a real error, so we ignore it.
 
 
 
