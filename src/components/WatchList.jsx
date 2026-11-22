@@ -1,5 +1,7 @@
 // This component is finished. Read it, but you do not need to change it.
 export default function WatchList({ watchlist, onToggle, onDelete }) {
+
+
   if (watchlist.length === 0) {
     return <p className="meta">No watchlist yet. Add one above.</p>;
   }
