@@ -8,19 +8,20 @@ Answer each question in your own words, two or three sentences. Do not paste an 
 
 **1.1 (Explain)** In your own words, why did the Favourite button do nothing while favourite was an ordinary variable?
 
-My answer:
+My answer: it's forgotten and reset.
+
 
 
 
 **1.2 (Predict)** There are three cards and you click Add favourite on the second one. Which cards change, and why?
 
-My answer:
+My answer: React isn't told to redraw
 
 
 
 **1.3 (Fix)** A friend wrote onClick={setFavourite(true)} and gets "Too many re-renders". What is wrong and how do you fix it?
 
-My answer:
+My answer: Memory that lasts, plus a redraw when it changes
 
 
 
@@ -28,25 +29,25 @@ My answer:
 
 **2.1 (Explain)** What does it mean for an input to be controlled? Describe what happens from one key press to the new text appearing in the box.
 
-My answer:
+My answer:The sigle source of truth for what box shows and React state holds the box's value (value={text}). On each key press onChange calls setText, React redraws, and the new text appears.
 
 
 
 **2.2 (Explain)** Why is watchlist.push(item) followed by setWatchlist(watchlist) a bug?
 
-My answer:
+My answer:push changes the same array, and React compares by reference, so it sees no change and doesn't redraw. You need a new array like [...watchlist, newItem]
 
 
 
 **2.3 (Explain)** The heading shows how many movies are still to watch. Why does that number not need its own useState?
 
-My answer:
+My answer:It's derived data that can be calculated from watchlist on every draw. A separate state would be a second copy that could go out of sync.
 
 
 
 **2.4 (Explain)** Why do list items use key={item.id} and not the index?
 
-My answer:
+My answer:An id stays with the item, but an index changes when items are deleted or moved. With indexes, React can match the wrong items, which causes bugs like wrong checkbox states.
 
 
 
