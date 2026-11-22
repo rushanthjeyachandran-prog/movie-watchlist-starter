@@ -1,0 +1,31 @@
+:root { --ink: #1b2433; --muted: #5b6b80; --line: #d5dbe6; --bg: #f4f6fa; --accent: #3b5bdb; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: var(--bg); color: var(--ink); }
+a { color: var(--accent); }
+.site-header, main, .panel, .site-footer { max-width: 960px; margin-left: auto; margin-right: auto; }
+.site-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1.5rem; padding: 1rem; border-bottom: 2px solid var(--accent); margin-bottom: 1.5rem; }
+.site-header h1 { margin: 0; font-size: 1.5rem; }
+.site-header nav { display: flex; gap: 1rem; align-items: center; }
+.nav { text-decoration: none; color: var(--muted); padding: 4px 2px; }
+.nav.active { color: var(--accent); font-weight: 700; border-bottom: 2px solid var(--accent); }
+.panel { background: #fff; border-radius: 12px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+.panel > h2 { margin-top: 0; }
+main { padding: 0 1rem; }
+.site-footer { padding: 1rem; color: var(--muted); font-size: .85rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 1rem; }
+.card { border: 1px solid var(--line); border-radius: 10px; padding: 1rem; background: #fff; display: flex; flex-direction: column; gap: .4rem; }
+.card h3 { margin: 0; font-size: 1.05rem; }
+.code { font-size: .8rem; font-weight: 700; color: var(--accent); letter-spacing: .06em; margin: 0; }
+.meta { color: var(--muted); font-size: .9rem; margin: 0; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: .8rem; align-self: flex-start; }
+.watched { background: #d9f5e3; color: #11663a; }
+.todo { background: #fff0cf; color: #7a5200; }
+button { cursor: pointer; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line); background: #fff; font: inherit; }
+button:hover { border-color: var(--accent); }
+form { display: flex; gap: .5rem; margin-bottom: 1rem; }
+input[type="text"], input:not([type]), input[type="search"] { flex: 1; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; font: inherit; }
+.watchlist { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+.watchlist li { display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--line); border-radius: 8px; padding: .5rem .75rem; }
+.struck { text-decoration: line-through; color: var(--muted); }
+.error { color: #8a1c1c; }
+.search { margin-bottom: 1rem; }
